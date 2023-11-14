@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "variations",
+  "info": {
+    "singularName": "variation",
+    "pluralName": "variations",
+    "displayName": "Variation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nom": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Nom"
+    },
+    "Price": {
+      "type": "decimal"
+    },
+    "Sale": {
+      "type": "decimal"
+    },
+    "Stock": {
+      "type": "integer"
+    },
+    "Images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "variations"
+    }
+  }
+}
